@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-kdeane87-firearmsblog-uq7nmjsxuvn.ws-eu105.gitpod.io',
-'firearms-blog.herokuapp.com', 'localhost']
+'firearms-bloguti.herokuapp.com', 'localhost']
 
 
 # Application definition
