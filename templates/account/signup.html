@@ -4,6 +4,10 @@
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
+{% load socialaccount %}
+{% providers_media_js %}
+
+
 {% block content %}
 <div class="container">
     <div class="row">
@@ -21,6 +25,7 @@
                 {{ form.as_p }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                <a href="{% provider_login_url "facebook" %}">Facebook Connect</a>
                 {% endif %}
                 <button class="btn btn-signup right" type="submit">{% trans "Sign Up" %} &raquo;</button>
             </form>
