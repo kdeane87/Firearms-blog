@@ -53,7 +53,6 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            messages.add_message(request, messages.INFO, 'you,ve successfully commented')
         else:
             comment_form = CommentForm()
 
@@ -77,8 +76,9 @@ class PostLike(View):
 
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
+            messages.success(request, 'You unliked this post!')
         else:
             post.likes.add(request.user)
-            messages.success(request, 'liked')
+            messages.success(request, 'You liked this post!')
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
