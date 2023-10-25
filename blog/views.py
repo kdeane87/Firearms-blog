@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from .models import Post
 from .forms import CommentForm
+
+
 
 
 class PostList(generic.ListView):
@@ -50,6 +53,7 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.add_message(request, messages.INFO, 'you,ve successfully commented')
         else:
             comment_form = CommentForm()
 
@@ -63,7 +67,8 @@ class PostDetail(View):
                 "comment_form": comment_form,
                 "liked": liked
             },
-        )
+
+          )
 
 class PostLike(View):
 
@@ -74,5 +79,6 @@ class PostLike(View):
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
+            messages.success(request, 'liked')
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
