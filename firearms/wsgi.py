@@ -11,15 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-from whitenoise import WhiteNoise
-
-
-application = get_wsgi_application()
-application = WhiteNoise(application, root="css/style.css")
-# application.add_files("/path/to/more/static/files", prefix="more-files/")
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'firearms.settings')
 
 application = get_wsgi_application()
-
-
