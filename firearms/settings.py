@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-kdeane87-firearmsblog-znatox3kjiy.ws-eu105.gitpod.io',
 'firearms-blog-c89bffec534a.herokuapp.com', 'localhost']
@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    'whitenoise.runserver_nostatic',
     'cloudinary_storage',
-    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     'cloudinary',
     'allauth',
@@ -193,7 +193,7 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
 
