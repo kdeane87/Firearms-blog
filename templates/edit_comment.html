@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
 
+<p>test</p>
+
 <div class="masthead">
   <div class="container">
     <div class="row g-0">
@@ -106,7 +108,7 @@
           {{ comment.body | linebreaks }}
         </div>
         <span>
-          <a href="{% url 'edit_comment' comment.id %}">
+          <a href="/edit_comment/{{ comment.id }}">
             <button>edit</button>
           </a>
           <a>

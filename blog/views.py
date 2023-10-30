@@ -69,6 +69,9 @@ class PostDetail(View):
 
           )
 
+    def EditComment(self, request, slug, comment_id):
+        return render(request, "edit_comment")
+
 class PostLike(View):
 
     def post(self, request, slug):
