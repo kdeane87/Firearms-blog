@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
 
 
@@ -69,7 +69,7 @@ class PostDetail(View):
 
           )
 
-    def EditComment(self, request, slug, comment_id):
+    def EditComment(self, request, comment_id):
         return render(request, "edit_comment")
 
 class PostLike(View):
@@ -85,3 +85,17 @@ class PostLike(View):
             messages.success(request, 'You liked this post!')
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class CommentUpdate(generic.UpdateView):
+
+    model = Comment
+
+    fields = ['body']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        print(context)
+        post = context['object'].post
+        context['post'] = post
+        return context

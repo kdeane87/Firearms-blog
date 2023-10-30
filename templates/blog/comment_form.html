@@ -108,7 +108,7 @@
           {{ comment.body | linebreaks }}
         </div>
         <span>
-          <a href="/edit_comment/{{ comment.id }}">
+          <a href="{% url 'edit_comment' comment.id %}">
             <button>edit</button>
           </a>
           <a>
@@ -134,7 +134,7 @@
           {{ comment_form | crispy }} {% csrf_token %}
           <button type="submit" class="btn btn-signup btn-lg">Submit</button>
         </form>
-        {% endif %} {% endif %}
+        {% endif %} {% endif %} {{form.as_p}}
       </div>
     </div>
   </div>
