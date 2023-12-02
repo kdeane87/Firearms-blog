@@ -38,6 +38,7 @@ ALLOWED_HOSTS = ['8000-kdeane87-firearmsblog-znatox3kjiy.ws-eu106.gitpod.io',
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -60,6 +61,17 @@ INSTALLED_APPS = [
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
+# JAZZMIN_SETTINGS = {
+#     "show_ui_builder": True
+# }
+
+# JAZZMIN_UI_TWEAKS = {
+#     "dark_mode_theme"
+# }
+
+JAZZMIN_UI_TWEAKS = {
+     "theme": "slate",
+}
 
 SITE_ID = 1
 
