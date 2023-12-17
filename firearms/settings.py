@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-kdeane87-firearmsblog-znatox3kjiy.ws-eu106.gitpod.io',
+ALLOWED_HOSTS = ['8000-kdeane87-firearmsblog-znatox3kjiy.ws-eu107.gitpod.io',
 'firearms-blog-c89bffec534a.herokuapp.com', 'localhost']
 
 
